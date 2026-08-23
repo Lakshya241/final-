@@ -1,0 +1,456 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties ─────────────────────────────────────────────── */
+:root {
+  --gold-primary: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-dark: #9A7730;
+  --cream: #FDF8F0;
+  --cream-2: #F5EFE3;
+  --charcoal: #1C1C1E;
+  --charcoal-2: #2A2A2E;
+  --warm-white: #FEFCF8;
+  --rose-gold: #B76E79;
+  --rose-gold-light: #D4909A;
+
+  --shadow-gold: 0 8px 32px rgba(201, 168, 76, 0.25);
+  --shadow-dark: 0 20px 60px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 16px 48px rgba(0, 0, 0, 0.18);
+
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-elegant: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ─── Base Resets ────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased overflow-x-hidden;
+    background-color: var(--warm-white);
+    color: var(--charcoal);
+    font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: rgba(201, 168, 76, 0.3);
+    color: var(--charcoal);
+  }
+}
+
+/* ─── Custom Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-primary), var(--gold-dark));
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
+
+/* ─── Typography Utilities ───────────────────────────────────────────────── */
+@layer components {
+  .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-serif-elegant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-rose-gradient {
+    background: linear-gradient(135deg, var(--rose-gold-light) 0%, var(--rose-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ─── Glass Morphism ────────────────────────────────────────────────────── */
+  .glass {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .glass-dark {
+    background: rgba(28, 28, 30, 0.75);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-gold {
+    background: rgba(201, 168, 76, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+  }
+
+  /* ─── Gold Buttons ──────────────────────────────────────────────────────── */
+  .btn-gold {
+    @apply relative overflow-hidden inline-flex items-center justify-center gap-2 px-8 py-4 font-semibold text-sm uppercase tracking-widest transition-all duration-300;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    color: var(--charcoal);
+    border-radius: 2px;
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-gold::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    opacity: 0;
+    transition: opacity 0.3s var(--transition-smooth);
+  }
+  .btn-gold:hover::before { opacity: 1; }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201, 168, 76, 0.4); }
+  .btn-gold > * { position: relative; z-index: 1; }
+
+  .btn-dark {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm uppercase tracking-widest font-medium transition-all duration-300;
+    background: var(--charcoal);
+    color: var(--cream);
+    border-radius: 2px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+  }
+  .btn-dark:hover {
+    background: var(--charcoal-2);
+    border-color: var(--gold-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-dark);
+  }
+
+  .btn-outline-gold {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-4 text-sm uppercase tracking-widest font-medium transition-all duration-300;
+    background: transparent;
+    color: var(--gold-primary);
+    border: 1.5px solid var(--gold-primary);
+    border-radius: 2px;
+  }
+  .btn-outline-gold:hover {
+    background: var(--gold-primary);
+    color: var(--charcoal);
+    transform: translateY(-2px);
+  }
+
+  /* ─── Section Labels ────────────────────────────────────────────────────── */
+  .section-label {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.35em];
+    color: var(--gold-primary);
+  }
+
+  /* ─── Product Card ──────────────────────────────────────────────────────── */
+  .product-card {
+    @apply relative overflow-hidden bg-white transition-all duration-500 cursor-pointer;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+  }
+  .product-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    border-color: rgba(201, 168, 76, 0.3);
+    transform: perspective(1000px) translateY(-8px);
+  }
+
+  /* ─── Category Pill ─────────────────────────────────────────────────────── */
+  .category-pill {
+    @apply inline-flex items-center gap-1.5 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest transition-all duration-300 cursor-pointer;
+    border-radius: 50px;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    background: white;
+    color: var(--charcoal);
+  }
+  .category-pill:hover {
+    border-color: var(--gold-primary);
+    color: var(--gold-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(201, 168, 76, 0.15);
+  }
+  .category-pill.active {
+    background: var(--charcoal);
+    color: #fff;
+    border-color: var(--charcoal);
+    box-shadow: 0 4px 20px rgba(28, 28, 30, 0.25);
+  }
+
+  /* ─── Section Banner (estele-style category grid) ───────────────────────── */
+  .category-banner {
+    @apply relative overflow-hidden cursor-pointer;
+    border-radius: 12px;
+  }
+  .category-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+    transition: opacity 0.4s var(--transition-smooth);
+  }
+  .category-banner:hover::after {
+    opacity: 0.85;
+  }
+  .category-banner img {
+    transition: transform 0.7s var(--transition-elegant);
+  }
+  .category-banner:hover img {
+    transform: scale(1.08);
+  }
+
+  /* ─── Navbar Glassmorphism ──────────────────────────────────────────────── */
+  .navbar-glass {
+    background: rgba(253, 248, 240, 0.88);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  }
+
+  /* ─── Animated Gold Divider ─────────────────────────────────────────────── */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+    opacity: 0.4;
+  }
+
+  /* ─── Marquee / Ticker ──────────────────────────────────────────────────── */
+  .marquee-track {
+    animation: marquee 28s linear infinite;
+    white-space: nowrap;
+  }
+
+  /* ─── Image Shine Effect ────────────────────────────────────────────────── */
+  .shine-effect::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.18), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.6s var(--transition-elegant);
+    pointer-events: none;
+  }
+  .shine-effect:hover::after { left: 130%; }
+
+  /* ─── Badge / Tag ───────────────────────────────────────────────────────── */
+  .badge-featured {
+    @apply absolute top-3 left-3 z-10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-primary));
+    color: var(--charcoal);
+    border-radius: 3px;
+  }
+
+  .badge-new {
+    @apply absolute top-3 left-3 z-10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest;
+    background: var(--charcoal);
+    color: white;
+    border-radius: 3px;
+  }
+
+  .badge-sold-out {
+    @apply absolute top-3 right-3 z-10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest;
+    background: rgba(180, 0, 0, 0.85);
+    color: white;
+    border-radius: 3px;
+  }
+
+  /* ─── Scroll Reveal ─────────────────────────────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--transition-elegant), transform 0.7s var(--transition-elegant);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── Rating Stars ──────────────────────────────────────────────────────── */
+  .star-filled { color: var(--gold-primary); }
+  .star-empty  { color: #d1d5db; }
+}
+
+/* ─── Keyframe Animations ────────────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes float-medium {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(3deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4); }
+  50%       { box-shadow: 0 0 0 12px rgba(201, 168, 76, 0); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── Utility Animation Classes ─────────────────────────────────────────── */
+.animate-float-slow   { animation: float-slow 5s ease-in-out infinite; }
+.animate-float-medium { animation: float-medium 4s ease-in-out infinite; }
+.animate-spin-slow    { animation: spin-slow 12s linear infinite; }
+.animate-pulse-gold   { animation: pulse-gold 2.5s ease-in-out infinite; }
+.animate-fade-in-up   { animation: fadeInUp 0.7s var(--transition-elegant) both; }
+.animate-scale-in     { animation: scaleIn 0.5s var(--transition-spring) both; }
+.animate-slide-left   { animation: slideInLeft 0.6s var(--transition-elegant) both; }
+
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+
+/* ─── Shimmer Skeleton ───────────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* ─── 3D Perspective Utilities ───────────────────────────────────────────── */
+.perspective-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* ─── Noise Texture Overlay ──────────────────────────────────────────────── */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Responsive Image Containers ────────────────────────────────────────── */
+.img-hover-zoom {
+  overflow: hidden;
+}
+.img-hover-zoom img {
+  transition: transform 0.7s var(--transition-elegant);
+  will-change: transform;
+}
+.img-hover-zoom:hover img {
+  transform: scale(1.07);
+}
+
+/* ─── Price Tag ──────────────────────────────────────────────────────────── */
+.price-tag {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+/* ─── Admin Panel Overrides ──────────────────────────────────────────────── */
+.admin-sidebar-item {
+  @apply flex items-center gap-3 px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200;
+}
+.admin-sidebar-item:hover {
+  background: rgba(201, 168, 76, 0.1);
+  color: var(--gold-primary);
+}
+.admin-sidebar-item.active {
+  background: rgba(201, 168, 76, 0.15);
+  color: var(--gold-primary);
+  border-left: 3px solid var(--gold-primary);
+}
+
+/* ─── Form Inputs ────────────────────────────────────────────────────────── */
+.input-field {
+  @apply w-full px-4 py-3.5 text-sm transition-all duration-200 outline-none;
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 6px;
+  color: var(--charcoal);
+}
+.input-field:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.12);
+}
+.input-field::placeholder {
+  color: #9ca3af;
+}
+
+/* ─── Cart Sidebar ───────────────────────────────────────────────────────── */
+.cart-overlay {
+  animation: fadeInUp 0.3s var(--transition-smooth) both;
+}
+
+/* ─── Hero Gradient Background ───────────────────────────────────────────── */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-2) 50%, #EFE5D3 100%);
+}
+
+/* ─── Collection Grid Hover ──────────────────────────────────────────────── */
+.collection-card {
+  transition: all 0.5s var(--transition-elegant);
+}
+.collection-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+}
