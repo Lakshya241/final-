@@ -585,8 +585,6 @@ function ProductCardCompact({ product }) {
   return (
     <div
       className="group cursor-pointer"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
       style={{
         background: '#fff',
         borderRadius: '14px',
