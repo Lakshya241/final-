@@ -32,7 +32,7 @@ export default function CartItem({ item, onUpdateQuantity, onRemove }) {
           </p>
         )}
         <p className="font-display text-sm font-semibold text-charcoal-800">
-          ${Number(product.price).toLocaleString('en-US', { minimumFractionDigits: 2 })} each
+          ₹{Number(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })} each
         </p>
       </div>
 
@@ -63,7 +63,7 @@ export default function CartItem({ item, onUpdateQuantity, onRemove }) {
 
         {/* Line total */}
         <p className="font-display text-lg font-bold text-charcoal-900 min-w-[80px] text-right">
-          ${itemTotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+          ₹{itemTotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
         </p>
 
         {/* Remove */}

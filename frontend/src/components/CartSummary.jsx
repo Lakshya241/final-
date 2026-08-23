@@ -16,7 +16,7 @@ export default function CartSummary({ subtotal, itemCount }) {
         <div className="flex justify-between">
           <span>Subtotal ({itemCount} {itemCount === 1 ? 'item' : 'items'})</span>
           <span className="font-serif text-base text-charcoal-950 font-normal">
-            ${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+            ₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
           </span>
         </div>
 
@@ -28,7 +28,7 @@ export default function CartSummary({ subtotal, itemCount }) {
         <div className="border-t border-cream-200 pt-4 flex justify-between text-sm font-semibold text-charcoal-950">
           <span className="tracking-[0.2em]">Total</span>
           <span className="font-serif text-2xl text-charcoal-950 font-normal">
-            ${total.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+            ₹{total.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
           </span>
         </div>
       </div>

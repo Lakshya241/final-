@@ -30,7 +30,7 @@ export default function AdminDashboardPage() {
   const STATS = [
     {
       label: 'Total Revenue',
-      value: `$${totalRevenue.toLocaleString('en-US', { minimumFractionDigits: 2 })}`,
+      value: `₹${totalRevenue.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`,
       icon: DollarSign,
       sub: 'All-time earnings',
       color: 'text-gold-500',
@@ -142,7 +142,7 @@ export default function AdminDashboardPage() {
                   </div>
                   <div className="flex items-center gap-5 shrink-0">
                     <span className="font-display text-base font-bold text-white">
-                      ${Number(order.total_amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                        ₹{Number(order.total_amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                     </span>
                     <OrderStatusBadge status={order.status} />
                   </div>
@@ -179,7 +179,7 @@ export default function AdminDashboardPage() {
                   </div>
                   <div className="text-right shrink-0">
                     <p className="font-display text-sm font-bold text-gold-400">
-                      ${Number(p.price).toLocaleString('en-US', { minimumFractionDigits: 0 })}
+                      ₹{Number(p.price).toLocaleString('en-IN', { minimumFractionDigits: 0 })}
                     </p>
                     <p className="font-sans text-[10px] text-charcoal-400">Stock: {p.stock}</p>
                   </div>

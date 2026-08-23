@@ -245,7 +245,7 @@ export default function CheckoutPage() {
                       <p className="font-sans text-xs text-charcoal-400 font-light">Qty: {item.quantity}</p>
                     </div>
                     <p className="font-display text-sm font-semibold text-charcoal-900 shrink-0">
-                      ${(item.product.price * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 0 })}
+                      ₹{(item.product.price * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 0 })}
                     </p>
                   </div>
                 ))}
@@ -254,7 +254,7 @@ export default function CheckoutPage() {
               <div className="border-t border-cream-200 pt-4 space-y-2 font-sans text-sm">
                 <div className="flex justify-between text-charcoal-500">
                   <span>Subtotal</span>
-                  <span>${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
+                      <span>₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between text-gold-600 text-xs font-semibold">
                   <span>Shipping & Insurance</span>
@@ -263,7 +263,7 @@ export default function CheckoutPage() {
                 <div className="flex justify-between font-bold text-charcoal-900 text-base pt-2 border-t border-cream-200">
                   <span>Total</span>
                   <span className="font-display text-xl">
-                    ${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                    ₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
               </div>

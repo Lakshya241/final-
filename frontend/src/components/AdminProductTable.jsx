@@ -105,7 +105,7 @@ export default function AdminProductTable({ products, onEdit, onDelete }) {
 
                 {/* Price */}
                 <td style={{ ...td, fontFamily: "'Playfair Display', serif", fontSize: '15px', fontWeight: '600', color: T.goldLight }}>
-                  ${Number(product.price).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                  ₹{Number(product.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                 </td>
 
                 {/* Stock */}

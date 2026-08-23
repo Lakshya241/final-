@@ -101,7 +101,7 @@ export default function OrderTable({ orders, onStatusChange }) {
 
                     {/* Total */}
                     <td style={{ ...td, fontFamily: "'Playfair Display', serif", fontSize: '16px', fontWeight: '600', color: T.textPrimary }}>
-                      ${Number(order.total_amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                      ₹{Number(order.total_amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                     </td>
 
                     {/* Status select */}
@@ -186,7 +186,7 @@ export default function OrderTable({ orders, onStatusChange }) {
                                     </div>
                                   </div>
                                   <span style={{ fontFamily: "'Playfair Display', serif", fontSize: '13px', fontWeight: '600', color: T.goldLight, whiteSpace: 'nowrap' }}>
-                                    ${(Number(item.price) * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                                        ₹{(Number(item.price) * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                                   </span>
                                 </div>
                               ))}

@@ -100,10 +100,10 @@ const FALLBACK_PRODUCTS = [
 
 /* ── Budget price points ─────────────────────────────────────────────────── */
 const BUDGET_RANGES = [
-  { label: 'Under $1,500', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80' },
-  { label: '$1,500 – $3,000', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80' },
-  { label: '$3,000 – $5,000', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80' },
-  { label: '$5,000 & Above', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80' },
+  { label: 'Under ₹1,500', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80' },
+  { label: '₹1,500 – ₹3,000', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=400&q=80' },
+  { label: '₹3,000 – ₹5,000', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80' },
+  { label: '₹5,000 & Above', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80' },
 ];
 
 /* ── Scroll-reveal hook ─────────────────────────────────────────────────── */
@@ -678,7 +678,7 @@ function ProductCardCompact({ product }) {
           fontFamily: "'Playfair Display', serif", fontSize: '17px', fontWeight: '700',
           color: '#1C1C1E', margin: 0,
         }}>
-          ${Number(product.price).toLocaleString('en-US', { minimumFractionDigits: 0 })}
+              ₹{Number(product.price).toLocaleString('en-IN', { minimumFractionDigits: 0 })}
         </p>
       </div>
     </div>

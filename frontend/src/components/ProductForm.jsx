@@ -139,7 +139,7 @@ export default function ProductForm({ initialData, onSubmit, onClose, loading })
 
           {/* Row: Price + Stock */}
           <div className="product-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
-            <Field label="Price (USD) *">
+            <Field label="Price (INR) *">
               <input type="number" step="0.01" min="0" name="price" required value={form.price}
                 onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle}
                 placeholder="2850.00" style={inp} />

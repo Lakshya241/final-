@@ -196,7 +196,7 @@ export default function CheckoutForm() {
             <span>Processing Order...</span>
           </>
         ) : (
-          <span>Place Order (${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })})</span>
+            <span>Place Order (₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })})</span>
         )}
       </button>
     </form>

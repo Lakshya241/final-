@@ -57,7 +57,7 @@ export default function OrderSuccessPage() {
             <div>
               <p className="font-sans text-[10px] uppercase tracking-widest text-charcoal-300 mb-1">Total</p>
               <p className="font-display text-lg font-bold text-gold-400">
-                ${Number(order.total_amount).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                ₹{Number(order.total_amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
               </p>
             </div>
           </div>
@@ -97,11 +97,11 @@ export default function OrderSuccessPage() {
                         {item.product_name}
                       </p>
                       <p className="font-sans text-xs text-charcoal-400">
-                        Qty: {item.quantity} × ${Number(item.price).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                        Qty: {item.quantity} × ₹{Number(item.price).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                       </p>
                     </div>
                     <p className="font-display text-base font-bold text-charcoal-900 shrink-0">
-                      ${(Number(item.price) * item.quantity).toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                      ₹{(Number(item.price) * item.quantity).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                     </p>
                   </div>
                 ))}

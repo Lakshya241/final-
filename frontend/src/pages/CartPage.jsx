@@ -87,7 +87,7 @@ export default function CartPage() {
                 <div className="flex justify-between text-charcoal-600">
                   <span>Subtotal ({itemCount} items)</span>
                   <span className="font-semibold text-charcoal-900">
-                    ${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                    ₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
                 <div className="flex justify-between text-gold-600">
@@ -105,7 +105,7 @@ export default function CartPage() {
                   Total
                 </span>
                 <span className="font-display text-2xl font-bold text-charcoal-900">
-                  ${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                  ₹{subtotal.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                 </span>
               </div>
 

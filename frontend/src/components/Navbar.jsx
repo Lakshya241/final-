@@ -56,12 +56,12 @@ export default function Navbar() {
         <div className="flex items-center h-full justify-center relative">
           <div className="marquee-track flex items-center gap-16 text-[11px] font-sans font-medium tracking-widest uppercase text-cream-200">
             {[
-              '✦ Free Insured Shipping on Orders Over $500',
+              '✦ Free Insured Shipping on Orders Over ₹500',
               '✦ Ethically Sourced Gemstones',
               '✦ Lifetime Craft Warranty',
               '✦ GIA Certified Diamonds',
               '✦ Handcrafted in Geneva',
-              '✦ Free Insured Shipping on Orders Over $500',
+              '✦ Free Insured Shipping on Orders Over ₹500',
               '✦ Ethically Sourced Gemstones',
               '✦ Lifetime Craft Warranty',
               '✦ GIA Certified Diamonds',

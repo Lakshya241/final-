@@ -155,7 +155,7 @@ export default function ProductCard({ product, variant = 'default' }) {
         {/* Price row */}
         <div className="flex items-center justify-between pt-2 mt-auto border-t border-cream-200">
           <span className="price-tag text-lg">
-            ${Number(product.price).toLocaleString('en-US', { minimumFractionDigits: 0 })}
+            ₹{Number(product.price).toLocaleString('en-IN', { minimumFractionDigits: 0 })}
           </span>
           {!isOutOfStock && (
             <span className="font-sans text-[10px] uppercase tracking-widest text-charcoal-400 font-medium">
