@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = `${import.meta.env.VITE_API_URL}`
+  .replace(/\/+$/, '')
+  .replace(/\/api$/, '') + '/api';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -15,7 +17,7 @@ const api = axios.create({
 export const getProducts = async (category = '') => {
   try {
     const params = category && category.toLowerCase() !== 'all' ? { category } : {};
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`, { params });
+    const response = await api.get('/products', { params });
     return response.data;
   } catch (error) {
     console.error('Error fetching products:', error);
@@ -35,7 +37,7 @@ export const getProductById = async (id) => {
 
 export const createProduct = async (productData) => {
   try {
-    const response = await api.post(`${import.meta.env.VITE_API_URL}/api/products`, productData);
+    const response = await api.post('/products', productData);
     return response.data;
   } catch (error) {
     console.error('Error creating product:', error);
