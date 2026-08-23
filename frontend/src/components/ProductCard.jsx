@@ -48,7 +48,7 @@ export default function ProductCard({ product, variant = 'default' }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
-      className="relative bg-white overflow-hidden flex flex-col cursor-pointer group"
+      className="product-card relative bg-white overflow-hidden flex flex-col cursor-pointer group"
       style={{
         borderRadius: '10px',
         border: '1px solid rgba(0,0,0,0.06)',

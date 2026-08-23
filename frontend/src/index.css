@@ -65,6 +65,149 @@
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--gold-dark); }
 
+/* ─── Responsive layouts ────────────────────────────────────────────────── */
+.admin-main {
+  min-width: 0;
+}
+
+.admin-table-frame {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .category-pill {
+    padding: 0.55rem 0.8rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+  }
+
+  .product-card {
+    transform: none !important;
+  }
+
+  .admin-shell {
+    display: block !important;
+  }
+
+  .admin-sidebar {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: auto !important;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between !important;
+  }
+
+  .admin-sidebar > div:first-child {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .admin-sidebar > div:first-child > div:first-child {
+    padding: 12px 14px !important;
+    border-bottom: 0 !important;
+  }
+
+  .admin-sidebar > div:first-child > div:first-child p {
+    display: none;
+  }
+
+  .admin-sidebar > div:first-child > p {
+    display: none;
+  }
+
+  .admin-sidebar nav {
+    padding: 0 4px !important;
+    flex-direction: row !important;
+    gap: 2px !important;
+  }
+
+  .admin-sidebar nav a {
+    width: auto !important;
+    padding: 10px !important;
+    border-left: 0 !important;
+    border-bottom: 3px solid transparent;
+  }
+
+  .admin-sidebar nav a[aria-current='page'],
+  .admin-sidebar nav a.active {
+    border-bottom-color: #C9A84C;
+  }
+
+  .admin-sidebar nav a span,
+  .admin-sidebar nav a svg:last-child {
+    display: none;
+  }
+
+  .admin-sidebar > div:last-child {
+    padding: 6px !important;
+    border-top: 0 !important;
+    flex-direction: row !important;
+  }
+
+  .admin-sidebar > div:last-child a,
+  .admin-sidebar > div:last-child button {
+    width: auto !important;
+    padding: 10px !important;
+    border-left: 0 !important;
+  }
+
+  .admin-sidebar > div:last-child span {
+    display: none;
+  }
+
+  .admin-main {
+    width: 100%;
+    padding: 20px 14px !important;
+    gap: 20px !important;
+  }
+
+  .admin-main h1 {
+    font-size: 24px !important;
+  }
+
+  .admin-main > div:first-child {
+    margin-bottom: 0 !important;
+  }
+
+  .admin-main > div:first-child p {
+    max-width: 220px;
+    line-height: 1.5;
+  }
+
+  .admin-table-frame {
+    border-radius: 10px !important;
+  }
+
+  .admin-table-frame table {
+    min-width: 680px;
+  }
+
+  .product-form-modal {
+    padding: 22px 16px !important;
+    border-radius: 14px !important;
+    max-height: calc(100vh - 24px) !important;
+  }
+
+  .product-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .product-form-modal form > div:last-child {
+    flex-direction: column-reverse !important;
+  }
+
+  .product-form-modal form > div:last-child button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* ─── Typography Utilities ───────────────────────────────────────────────── */
 @layer components {
   .font-serif-display {

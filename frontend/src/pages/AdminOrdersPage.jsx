@@ -38,10 +38,10 @@ export default function AdminOrdersPage() {
   };
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#0F0F11' }}>
+    <div className="admin-shell" style={{ display: 'flex', minHeight: '100vh', background: '#0F0F11' }}>
       <AdminSidebar />
 
-      <main style={{ flex: 1, overflowY: 'auto', padding: '32px', background: '#0F0F11' }}>
+      <main className="admin-main" style={{ flex: 1, overflowY: 'auto', padding: '32px', background: '#0F0F11' }}>
         {/* Header */}
         <div style={{ paddingBottom: '24px', borderBottom: '1px solid #27272A', marginBottom: '32px' }}>
           <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: '28px', fontWeight: '700', color: '#FFFFFF', margin: 0 }}>

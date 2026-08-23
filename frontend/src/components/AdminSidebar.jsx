@@ -56,7 +56,7 @@ export default function AdminSidebar() {
   });
 
   return (
-    <aside style={{
+    <aside className="admin-sidebar" style={{
       width: '236px',
       minWidth: '236px',
       minHeight: '100vh',

@@ -63,10 +63,10 @@ export default function AdminDashboardPage() {
   ];
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#0F0F11' }}>
+    <div className="admin-shell" style={{ display: 'flex', minHeight: '100vh', background: '#0F0F11' }}>
       <AdminSidebar />
 
-      <main style={{ flex: 1, overflowY: 'auto', padding: '32px', display: 'flex', flexDirection: 'column', gap: '32px', background: '#0F0F11' }}>
+      <main className="admin-main" style={{ flex: 1, overflowY: 'auto', padding: '32px', display: 'flex', flexDirection: 'column', gap: '32px', background: '#0F0F11' }}>
 
         {/* ── Header ──────────────────────────────────────────────── */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-charcoal-800">

@@ -47,7 +47,7 @@ export default function AdminProductTable({ products, onEdit, onDelete }) {
   }
 
   return (
-    <div style={{ background: T.surface, borderRadius: '16px', border: `1px solid ${T.border}`, overflow: 'hidden' }}>
+    <div className="admin-table-frame" style={{ background: T.surface, borderRadius: '16px', border: `1px solid ${T.border}`, overflow: 'hidden' }}>
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>

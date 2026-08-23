@@ -87,7 +87,7 @@ export default function ProductForm({ initialData, onSubmit, onClose, loading })
       padding: '20px', overflowY: 'auto',
     }}>
       {/* ── Modal ─── */}
-      <div style={{
+      <div className="product-form-modal" style={{
         background: '#18181B',
         border: '1px solid #27272A',
         borderRadius: '20px',
@@ -119,7 +119,7 @@ export default function ProductForm({ initialData, onSubmit, onClose, loading })
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
 
           {/* Row: Name + Category */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="product-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <Field label="Product Title *">
               <input type="text" name="name" required value={form.name} onChange={handleChange}
                 onFocus={focusStyle} onBlur={blurStyle}
@@ -138,7 +138,7 @@ export default function ProductForm({ initialData, onSubmit, onClose, loading })
           </div>
 
           {/* Row: Price + Stock */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="product-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <Field label="Price (USD) *">
               <input type="number" step="0.01" min="0" name="price" required value={form.price}
                 onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle}
@@ -151,7 +151,7 @@ export default function ProductForm({ initialData, onSubmit, onClose, loading })
           </div>
 
           {/* Row: Primary Image + Secondary Image */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+          <div className="product-form-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
             <Field label="Primary Image URL *">
               <input type="url" name="image_url" required value={form.image_url}
                 onChange={handleChange} onFocus={focusStyle} onBlur={blurStyle}
