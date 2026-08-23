@@ -15,7 +15,7 @@ const api = axios.create({
 export const getProducts = async (category = '') => {
   try {
     const params = category && category.toLowerCase() !== 'all' ? { category } : {};
-    const response = await api.get('/products', { params });
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/products`, { params });
     return response.data;
   } catch (error) {
     console.error('Error fetching products:', error);
