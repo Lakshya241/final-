@@ -1,3 +1,4 @@
+# AURA Backend — Production Dockerfile (Render-ready, SQLite)
 FROM php:8.3-cli
 
 RUN apt-get update \
@@ -38,4 +39,12 @@ RUN composer dump-autoload --optimize
 
 EXPOSE 10000
 
-CMD ["sh", "-c", "php artisan migrate --force && php artisan config:cache && php artisan route:cache && php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
+# On startup: copy .env if missing, migrate, seed, cache config, then serve
+CMD ["sh", "-c", \
+  "[ -f .env ] || cp .env.example .env && \
+   php artisan key:generate --force && \
+   php artisan migrate --force && \
+   php artisan db:seed --class=ProductSeeder --force && \
+   php artisan config:cache && \
+   php artisan route:cache && \
+   php artisan serve --host=0.0.0.0 --port=${PORT:-10000}"]
