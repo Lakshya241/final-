@@ -35,7 +35,7 @@ export const getProductById = async (id) => {
 
 export const createProduct = async (productData) => {
   try {
-    const response = await api.post('/products', productData);
+    const response = await api.post(`${import.meta.env.VITE_API_URL}/api/products`, productData);
     return response.data;
   } catch (error) {
     console.error('Error creating product:', error);
